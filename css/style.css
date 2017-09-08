@@ -493,6 +493,14 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     font-weight: 600;
     text-transform: uppercase;
 }
+.welcome-text h5{
+    color: #fff;
+    margin: 15px 0;
+    font-size: 16px;
+    letter-spacing: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
 .welcome-text h1 span{
     
 }
