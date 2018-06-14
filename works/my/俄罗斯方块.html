@@ -108,7 +108,7 @@
             var tb=document.createElement('table')//新创建table
             tb.setAttribute('id','mainTb')
             mainBoard.appendChild(tb)
-           tb.style="border-collapse: collapse;border:2px solid;position: relative;margin-left:auto; margin-right:auto;color:white;box-shadow:-1px 1px 8px rgba(0, 0, 0, 0.4);"
+           tb.style="border-collapse: collapse;border:2px solid;background:white;position: relative;margin-left:auto; margin-right:auto;color:gray;box-shadow:-1px 1px 8px rgba(0, 0, 0, 0.4);"
             for (var i=0;i<rows ;i++) {
                 var tr=document.createElement('tr');
                 tb.appendChild(tr);
@@ -151,28 +151,29 @@
                 }
            }
            if (lines.length>0) {
-               score+=lines.length*5;
-               document.getElementById('score').innerHTML=score;
-               for (var k=0;k<lines.length;k++){//下移
-                   for (var i=lines[k];i>=0;i--) {
-                       for (var j =0; j <cols ; j++) {
-                           if(allCell[i][j]==1){
-                               if (i+1<rows){
-                                   allCell[i][j]=0;
-                                   allCell[i+lines.length][j]=1;
+               score += lines.length * 5;
+               document.getElementById('score').innerHTML = score;
+               for (var k = 0; k < lines.length; k++) {//下移
+                   for (var i = lines[k]; i >= 0; i--) {
+                       for (var j = 0; j < cols; j++) {
+                           if (allCell[i][j] == 1) {
+                               if (i < rows) {
+                                   allCell[i][j] = 0;
+                                   allCell[i + 1][j] = 1;
                                }
                            }
                        }
                    }
                }
-               for (var i=0;i<rows;i++) {//清空
+
+               for (var i = 0; i < rows; i++) {//清空
                    for (var j = 0; j < cols; j++) {
-                       mainTb.rows[i].cells[j].style.backgroundColor=null;
+                       mainTb.rows[i].cells[j].style.backgroundColor = null;
                    }
                }
-               for (var i=0;i<rows;i++) {//重绘
+               for (var i = 0; i < rows; i++) {//重绘
                    for (var j = 0; j < cols; j++) {
-                       if (allCell[i][j] == 1) mainTb.rows[i].cells[j].style.backgroundColor =color;
+                       if (allCell[i][j] == 1) mainTb.rows[i].cells[j].style.backgroundColor = color;
                    }
                }
            }
@@ -341,7 +342,7 @@
     </script>
 </head>
 <body >
-    <div style="float: left;width: 50%;" id="mainBoard"></div>
+    <div style="float: left;width: 50%" id="mainBoard"></div>
     <div style="float: left; width: 30%;margin: 20px;padding:50px;background-color: white;box-shadow:-1px 1px 8px rgba(0, 0, 0, 0.4);border-radius: 10px">
         <div style="text-align: center;font-size: 40px;" id="score">score</div>
         <br><br><br><br><br><br>
