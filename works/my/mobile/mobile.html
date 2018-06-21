@@ -67,6 +67,7 @@
 		 function slide(e){
 			if(isRun){
 			 //clearInterval(timer);
+			    e.preventDefault();
                 var touch = event.targetTouches[0];
                 endX =touch.pageX,
                 endY = touch.pageY;
