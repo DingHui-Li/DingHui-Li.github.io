@@ -39,9 +39,9 @@
 				document.getElementById('mainBoard').onclick=function(){
 				if(isRun){
 						rotate();
-						clearInterval(timer);
-						fallingSpeed=normal;
-						moveDown();	
+						//clearInterval(timer);
+						//fallingSpeed=normal;
+						//moveDown();	
 						}
 				}
 				document.getElementById('score').onclick=function(){
@@ -65,7 +65,7 @@
         }
 		 function slide(e){
 			if(isRun){
-			 clearInterval(timer);
+			 //clearInterval(timer);
                 var touch = event.targetTouches[0];
                 endX =touch.pageX,
                 endY = touch.pageY;
@@ -80,7 +80,7 @@
                         draw();
                     }
 					startX=endX;startY=endY;
-                    moveDown();
+                   // moveDown();
 					
                 }
                 else if (Math.abs(X) > Math.abs(Y) && X < 0&& Math.abs(X)>25) {//左滑
@@ -92,9 +92,10 @@
                         draw();
                     }
 					startX=endX;startY=endY;
-                    moveDown();
+                   // moveDown();
                 }
                 else if (Math.abs(Y) > Math.abs(X) && Y > 0&& Math.abs(Y)>50) {//下滑
+				    clearInterval(timer);
 					startX=endX;startY=endY;
                     fallingSpeed = 1;
                     moveDown();	
@@ -340,12 +341,12 @@
 </head>
 <body style='background-color:#00a2d3'>
 	<div style='width:97%;height:97vh;position:absolute' id='main'>
-		<div style='height:8%;margin-bottom:5px;'>
+		<div style='height:8%;'>
 			<div id='score' style='position:relative;height:90%;float:left;width:20%;font-size:2em;left:40%;box-shadow: -1px 1px 8px rgba(0, 0, 0, 0.4);border-radius: 3px;text-align:center;background-color:white;line-height:3rem;font-weight:bold'>
 				
 			</div>
 			<div style='position:relative;float:right'>
-				<button class="md-trigger" data-modal="modal-9" ><img src='icon/提示.png'></img></button>
+				<button class="md-trigger" data-modal="modal-9" ><img src='icon/提示.png'style='width:2em;height:2em'></img></button>
 			</div>
 		</div>
 		<div id="mainBoard" style='height:89%;width:100%;position:absolute;box-shadow: -1px 1px 8px rgba(0, 0, 0, 0.4)'></div>
