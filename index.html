@@ -29,7 +29,15 @@
 
 <!--==== jquery ====-->
 <script src="js/jquery-2.1.4.min.js"></script>
-
+<script>
+	function choice(){
+		var sUserAgent = navigator.userAgent;
+		var isAndroid = false;
+		isAndroid = sUserAgent.toLowerCase().match(/android/i) == "android";  
+		if(isAndroid) window.open('works/my/mobile/mobile.html')
+		else window.open('works/my/俄罗斯方块.html')	
+	}
+</script>
 <!--[if lt IE 9]>
 <script src="js/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="js/respond/1.4.2/respond.min.js"></script>
@@ -132,7 +140,7 @@
 					<h3>俄罗斯方块</h3>
 					<div >
 						
-						<button style="background-color:black;color:white;font-weight:bold;border-radius:4px;width:80px;height:50px;position:relative;" onclick="window.open('works/my/俄罗斯方块.html')">run</button>
+						<button style="background-color:black;color:white;font-weight:bold;border-radius:4px;width:80px;height:50px;position:relative;" onclick=choice()>run</button>
 							<button style="background-color:black;color:white;font-weight:bold;border-radius:4px;height:50px;width:100px;position:relative;margin-left:10px" class="md-trigger" data-modal="modal-7">设计说明</button>
 					</div>
 			 </div>
